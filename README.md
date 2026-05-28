@@ -7,5 +7,5 @@ This needs Create and Create Optical. Also KubeJS, obviously.
 
 # Installation:
 
-Just download the repo and place KubeJS in Minecraft instance folder, if it asks to replace files, replace them.
+Just download the repo, unzip it, and place the kubejs folder in Minecraft instance folder, if it asks to replace files, replace them.
 Oh yeah, remember to restart Minecraft.
