@@ -46,7 +46,7 @@ ServerEvents.recipes(event => {
         "RMR"
     ], {
         I: "minecraft:iron_ingot",
-        W: "kubejs:wire",
+        W: Ingredient.of("#forge:wires/copper"),
         R: "minecraft:redstone",
         M: "kubejs:electric_motor"
     }).id("kubejs:actuator_arm_manual_only")
@@ -156,7 +156,7 @@ ServerEvents.recipes(event => {
         A: "kubejs:actuator_arm",
         P: "kubejs:hdd_platter",
         M: "kubejs:electric_motor",
-        W: "kubejs:wire"
+        W: Ingredient.of("#forge:wires/copper")
     }).id("kubejs:hdd_manual_only")
 
     event.remove({id: "computercraft:computer_normal"})
@@ -171,7 +171,7 @@ ServerEvents.recipes(event => {
         P: "kubejs:basic_processor",
         M: "kubejs:basic_motherboard",
         R: "kubejs:ddr3",
-        W: "kubejs:wire",
+        W: Ingredient.of("#forge:wires/copper"),
         I: "minecraft:iron_block"
     }).id("kubejs:computer_normal_manual_only")
 
@@ -189,7 +189,7 @@ ServerEvents.recipes(event => {
         D: "kubejs:ssd",
         P: "kubejs:advanced_processor",
         M: "kubejs:advanced_motherboard",
-        W: "kubejs:wire",
+        W: Ingredient.of("#forge:wires/copper"),
         G: "minecraft:gold_block"
     }).id("kubejs:computer_advanced_manual_only")
 
