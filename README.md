@@ -11,9 +11,11 @@ Also, once the first version is finished, I believe I will start work on a stand
 
 Crap I forgot to mention this reworks CC: Tweaked recipes lmao-
 
-Update: All Create recipes are gone! Just gotta add more items so I don't need to use Create and Mekanism items.
-...
-And also gotta make mobos craftable...
+Update: All Create recipes are gone! Just gotta add more items so I don't need to use Create items.
+
+Motherboards are now craftable! The crafting recipe isn't finished, I need to add more components. I also need to add the sheets and stuff, I added sulfur already.
+
+You now need the power of the sun for photolithography.
 
 # Installation:
 
