@@ -30,6 +30,7 @@ StartupEvents.registry("item", event => {
     event.create("vrm").texture("cc_item_recipes:item/vrm").displayName("Voltage Regulator Module")
     event.create("pcb").texture("cc_item_recipes:item/pcb").displayName("Blank Circuit Board")
     event.create("sun").texture("cc_item_recipes:item/sun").displayName("The Power of the Sun").glow(true)
+    event.create("sulfur").texture("cc_item_recipes:item/sulfur").displayName("Sulfur")
 })
 
 StartupEvents.registry("creative_mode_tab", event => {
@@ -40,6 +41,7 @@ StartupEvents.registry("creative_mode_tab", event => {
         "kubejs:silicon_nugget",
         "kubejs:silicon_ingot",
         "kubejs:undeveloped_wafer",
+        "kubejs:sulfur",
         "kubejs:coated_wafer",
         "kubejs:ssd_mask",
         "kubejs:ram_mask",

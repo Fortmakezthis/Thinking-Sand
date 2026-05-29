@@ -1,8 +1,7 @@
 ServerEvents.recipes(event => {
-    event.recipes.create.filling("kubejs:coated_wafer", [
-        "kubejs:undeveloped_wafer",
-        Fluid.of("mekanism:sulfuric_acid", 100)
-    ])
+    event.shapeless("kubejs:sulfur", ["minecraft:nether_wart", "minecraft:nether_wart"])
+
+    event.shapeless("kubejs:coated_wafer", ["kubejs:undeveloped_wafer", "kubejs:sulfur", "kubejs:sulfur"])
 
     event.shapeless("kubejs:ram_mask", ["kubejs:undeveloped_wafer", "minecraft:redstone"])
     event.shapeless("kubejs:ssd_mask", ["kubejs:undeveloped_wafer", "minecraft:glowstone_dust"])
