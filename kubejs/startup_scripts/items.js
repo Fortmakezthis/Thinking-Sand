@@ -29,6 +29,7 @@ StartupEvents.registry("item", event => {
     event.create("advanced_motherboard").texture("cc_item_recipes:item/amobo").displayName("Advanced Motherboard")
     event.create("vrm").texture("cc_item_recipes:item/vrm").displayName("Voltage Regulator Module")
     event.create("pcb").texture("cc_item_recipes:item/pcb").displayName("Blank Circuit Board")
+    event.create("sun").texture("cc_item_recipes:item/sun").displayName("The Power of the Sun").glow(true)
 })
 
 StartupEvents.registry("creative_mode_tab", event => {
@@ -43,6 +44,7 @@ StartupEvents.registry("creative_mode_tab", event => {
         "kubejs:ssd_mask",
         "kubejs:ram_mask",
         "kubejs:processor_mask",
+        "kubejs:sun",
         "kubejs:ssd_memory_chip",
         "kubejs:ram_memory_chip",
         "kubejs:processor_chip",
@@ -60,7 +62,7 @@ StartupEvents.registry("creative_mode_tab", event => {
         "kubejs:ddr5",
         "kubejs:advanced_processor",
         "kubejs:advanced_motherboard",
-        "kubejs:dense_gold_block",
-        "kubejs:computation_staff"
+        "kubejs:dense_gold_block"
+        // "kubejs:computation_staff" -- Nahh, not yet. Idk what to do with it yet.
     ])
 })

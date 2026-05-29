@@ -4,26 +4,11 @@ ServerEvents.recipes(event => {
         Fluid.of("mekanism:sulfuric_acid", 100)
     ])
 
-    event.recipes.create.deploying("kubejs:ram_mask", [
-        "kubejs:undeveloped_wafer",
-        "minecraft:redstone"
-    ])
+    event.shapeless("kubejs:ram_mask", ["kubejs:undeveloped_wafer", "minecraft:redstone"])
+    event.shapeless("kubejs:ssd_mask", ["kubejs:undeveloped_wafer", "minecraft:glowstone_dust"])
+    event.shapeless("kubejs:processor_mask", ["kubejs:undeveloped_wafer", "minecraft:gold_nugget"])
 
-    event.recipes.create.deploying("kubejs:ssd_mask", [
-        "kubejs:undeveloped_wafer",
-        "minecraft:glowstone_dust"
-    ])
-
-    event.recipes.create.deploying("kubejs:processor_mask", [
-        "kubejs:undeveloped_wafer",
-        "minecraft:gold_nugget"
-    ])
-
-    event.recipes.create.milling([
-    Item.of("kubejs:silicon_nugget").withChance(0.4),
-    Item.of("minecraft:sand").withChance(0.5),
-    Item.of("mekanism:dust_quartz").withChance(0.2)
-    ], "minecraft:quartz")
+    event.smelting("kubejs:silicon_nugget", "minecraft:quartz").xp(0.1)
 
     event.recipes.create.cutting([
     "4x kubejs:undeveloped_wafer",
@@ -62,44 +47,37 @@ ServerEvents.recipes(event => {
         I: "minecraft:iron_ingot"
     }).id("kubejs:electric_motor_manual_only")
 
-    event.custom({
-        type: "create_optical:focusing",
-        ingredients: [
-            { item: "kubejs:coated_wafer" },
-            { item: "kubejs:ram_mask" }
-        ],
-        results: [
-            { item: "kubejs:ram_memory_chip" }
-        ],
-        duration: 40,
-        required_beam_type: 3
-    })
+    event.shapeless("kubejs:sun", ["minecraft:torch", "minecraft:glowstone_dust", "minecraft:lantern", "minecraft:blaze_powder"])
+    
+    event.shaped("kubejs:ram_memory_chip", [
+        " S ",
+        " M ",
+        " W "
+    ], {
+        S: "kubejs:sun",
+        M: "kubejs:ram_mask",
+        W: "kubejs:coated_wafer"
+    }).id("kubejs:ram_memory_chip_manual_only")
 
-    event.custom({
-        type: "create_optical:focusing",
-        ingredients: [
-            { item: "kubejs:coated_wafer" },
-            { item: "kubejs:ssd_mask" }
-        ],
-        results: [
-            { item: "kubejs:ssd_memory_chip" }
-        ],
-        duration: 40,
-        required_beam_type: 3
-    })
+    event.shaped("kubejs:ssd_memory_chip", [
+        " S ",
+        " M ",
+        " W "
+    ], {
+        S: "kubejs:sun",
+        M: "kubejs:ssd_mask",
+        W: "kubejs:coated_wafer"
+    }).id("kubejs:ssd_memory_chip_manual_only")
 
-    event.custom({
-        type: "create_optical:focusing",
-        ingredients: [
-            { item: "kubejs:coated_wafer" },
-            { item: "kubejs:processor_mask" }
-        ],
-        results: [
-            { item: "kubejs:processor_chip" }
-        ],
-        duration: 40,
-        required_beam_type: 3
-    })
+    event.shaped("kubejs:processor_chip", [
+        " S ",
+        " M ",
+        " W "
+    ], {
+        S: "kubejs:sun",
+        M: "kubejs:processor_mask",
+        W: "kubejs:coated_wafer"
+    }).id("kubejs:processor_chip_manual_only")
 
     event.shaped("kubejs:ddr3", [
         "GGG",  
