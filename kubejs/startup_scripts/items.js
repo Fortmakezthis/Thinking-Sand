@@ -15,8 +15,6 @@ StartupEvents.registry("item", event => {
     event.create("ram_memory_chip").texture("cc_item_recipes:item/ram_memory_chip").displayName("RAM Memory Chip")
     event.create("ssd_memory_chip").texture("cc_item_recipes:item/ssd_memory_chip").displayName("SSD Memory Chip")
     event.create("processor_chip").texture("cc_item_recipes:item/processor_chip").displayName("Processor Chip")
-    event.create("incomplete_ddr5", "create:sequenced_assembly").texture("cc_item_recipes:item/ddr5").displayName("Incomplete DDR5")
-    event.create("incomplete_ssd", "create:sequenced_assembly").texture("cc_item_recipes:item/ssd").displayName("Incomplete SSD")
     event.create("ssd").texture("cc_item_recipes:item/ssd").displayName("SSD")
     event.create("hdd").texture("cc_item_recipes:item/hdd").displayName("HDD")
     event.create("hdd_platter").texture("cc_item_recipes:item/hdd_platter").displayName("HDD Platter")
@@ -31,7 +29,6 @@ StartupEvents.registry("item", event => {
     event.create("advanced_motherboard").texture("cc_item_recipes:item/amobo").displayName("Advanced Motherboard")
     event.create("vrm").texture("cc_item_recipes:item/vrm").displayName("Voltage Regulator Module")
     event.create("pcb").texture("cc_item_recipes:item/pcb").displayName("Blank Circuit Board")
-    event.create("incomplete_pcb", "create:sequenced_assembly").texture("cc_item_recipes:item/pcb").displayName("Incomplete Circuit Board")
 })
 
 StartupEvents.registry("creative_mode_tab", event => {
