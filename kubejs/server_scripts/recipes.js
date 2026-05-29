@@ -3,27 +3,33 @@ ServerEvents.recipes(event => {
         "kubejs:undeveloped_wafer",
         Fluid.of("mekanism:sulfuric_acid", 100)
     ])
+
     event.recipes.create.deploying("kubejs:ram_mask", [
         "kubejs:undeveloped_wafer",
         "minecraft:redstone"
     ])
+
     event.recipes.create.deploying("kubejs:ssd_mask", [
         "kubejs:undeveloped_wafer",
         "minecraft:glowstone_dust"
     ])
+
     event.recipes.create.deploying("kubejs:processor_mask", [
         "kubejs:undeveloped_wafer",
         "minecraft:gold_nugget"
     ])
+
     event.recipes.create.milling([
     Item.of("kubejs:silicon_nugget").withChance(0.4),
     Item.of("minecraft:sand").withChance(0.5),
     Item.of("mekanism:dust_quartz").withChance(0.2)
     ], "minecraft:quartz")
+
     event.recipes.create.cutting([
     "4x kubejs:undeveloped_wafer",
     Item.of("kubejs:silicon_nugget").withChance(0.25)
     ], "kubejs:silicon_ingot")
+
     event.shaped("kubejs:silicon_ingot", [
         "NNN",
         "NNN",
@@ -31,7 +37,9 @@ ServerEvents.recipes(event => {
     ], {
         N: "kubejs:silicon_nugget"
     })
+
     event.shapeless("9x kubejs:silicon_nugget", "kubejs:silicon_ingot")
+
     event.shaped("kubejs:actuator_arm", [
         " I ",
         " W ",
@@ -41,7 +49,8 @@ ServerEvents.recipes(event => {
         W: "kubejs:wire",
         R: "minecraft:redstone",
         M: "kubejs:electric_motor"
-    })
+    }).id("kubejs:actuator_arm_manual_only")
+
     event.shaped("kubejs:electric_motor", [
         " S ",
         "WWW",
@@ -51,7 +60,8 @@ ServerEvents.recipes(event => {
         W: Ingredient.of("#forge:wires/copper"),
         R: "minecraft:redstone",
         I: "minecraft:iron_ingot"
-    })
+    }).id("kubejs:electric_motor_manual_only")
+
     event.custom({
         type: "create_optical:focusing",
         ingredients: [
@@ -64,6 +74,7 @@ ServerEvents.recipes(event => {
         duration: 40,
         required_beam_type: 3
     })
+
     event.custom({
         type: "create_optical:focusing",
         ingredients: [
@@ -76,6 +87,7 @@ ServerEvents.recipes(event => {
         duration: 40,
         required_beam_type: 3
     })
+
     event.custom({
         type: "create_optical:focusing",
         ingredients: [
@@ -88,6 +100,7 @@ ServerEvents.recipes(event => {
         duration: 40,
         required_beam_type: 3
     })
+
     event.shaped("kubejs:ddr3", [
         "GGG",  
         "WWW",
@@ -97,7 +110,8 @@ ServerEvents.recipes(event => {
         W: "kubejs:ram_memory_chip",
         I: "minecraft:iron_ingot",
         R: "minecraft:redstone"
-    })
+    }).id("kubejs:ddr3_manual_only")
+
     event.shaped("kubejs:basic_processor", [
         "GGG",
         "RPR",
@@ -108,7 +122,8 @@ ServerEvents.recipes(event => {
         S: "create:iron_sheet",
         P: "kubejs:processor_chip",
         R: "minecraft:redstone"
-    })
+    }).id("kubejs:basic_processor_manual_only")
+
     event.shaped("kubejs:advanced_processor", [
         "DDD",
         "RPR",
@@ -116,10 +131,11 @@ ServerEvents.recipes(event => {
     ], {
         D: "minecraft:diamond",
         G: "minecraft:gold_ingot",
-        N: "createdeco:netherite_nugget",
+        N: "minecraft:netherite_ingot",
         P: "kubejs:processor_chip",
         R: "minecraft:redstone"
-    })
+    }).id("kubejs:advanced_processor_manual_only")
+
     event.shaped("kubejs:hdd_platter", [
         "III",
         "ISI",
@@ -127,8 +143,10 @@ ServerEvents.recipes(event => {
     ], {
         I: "create:iron_sheet",
         S: "create:shaft"
-    })
-    event.shapeless("kubejs:wire", [Ingredient.of("#forge:wires/copper"), "minecraft:dried_kelp"])
+    }).id("kubejs:hdd_platter_manual_only")
+
+    event.stonecutting("4x kubejs:wire", "minecraft:copper_ingot")
+
     event.shaped("kubejs:hdd", [
         "III",
         "WMP",
@@ -139,8 +157,10 @@ ServerEvents.recipes(event => {
         P: "kubejs:hdd_platter",
         M: "kubejs:electric_motor",
         W: "kubejs:wire"
-    })
+    }).id("kubejs:hdd_manual_only")
+
     event.remove({id: "computercraft:computer_normal"})
+
     event.shaped("computercraft:computer_normal", [
         "SHR",
         "PMR",
@@ -153,9 +173,12 @@ ServerEvents.recipes(event => {
         R: "kubejs:ddr3",
         W: "kubejs:wire",
         I: "minecraft:iron_block"
-    })
+    }).id("kubejs:computer_normal_manual_only")
+
     event.remove({id: "computercraft:computer_advanced"})
+
     event.remove({id: "computercraft:computer_advanced_upgrade"})
+
     event.shaped("computercraft:computer_advanced", [
         "SDR",
         "PMR",
@@ -168,89 +191,37 @@ ServerEvents.recipes(event => {
         M: "kubejs:advanced_motherboard",
         W: "kubejs:wire",
         G: "minecraft:gold_block"
-    })
-    event.recipes.create.sequenced_assembly(
-    [
-        Item.of("kubejs:ddr5").withChance(1)
-    ],
-    "minecraft:gold_ingot",
-    [
-        event.recipes.create.deploying("kubejs:incomplete_ddr5", ["kubejs:incomplete_ddr5", "minecraft:redstone"]),
-        event.recipes.create.deploying("kubejs:incomplete_ddr5", ["kubejs:incomplete_ddr5", "kubejs:ram_memory_chip"]),
-        event.recipes.create.deploying("kubejs:incomplete_ddr5", ["kubejs:incomplete_ddr5", "minecraft:diamond"]),
-        event.recipes.create.pressing("kubejs:incomplete_ddr5", "kubejs:incomplete_ddr5")
-    ]).transitionalItem("kubejs:incomplete_ddr5")
-    .loops(4)
-    event.recipes.create.sequenced_assembly(
-    [
-        Item.of("kubejs:ssd").withChance(1)
-    ],
-    "kubejs:processor_chip",
-    [
-        event.recipes.create.deploying("kubejs:incomplete_ssd", ["kubejs:incomplete_ssd", "create:iron_sheet"]),
-        event.recipes.create.deploying("kubejs:incomplete_ssd", ["kubejs:incomplete_ssd", "kubejs:ssd_memory_chip"]),
-        event.recipes.create.deploying("kubejs:incomplete_ssd", ["kubejs:incomplete_ssd", "minecraft:gold_ingot"]),
-        event.recipes.create.pressing("kubejs:incomplete_ssd", "kubejs:incomplete_ssd")
-    ]).transitionalItem("kubejs:incomplete_ssd")
-    .loops(4)
-    event.recipes.create.sequenced_assembly(
-    [
-        Item.of("kubejs:pcb").withChance(1)
-    ],
-    "minecraft:terracotta",
-    [
-        event.recipes.create.deploying("kubejs:incomplete_pcb", ["kubejs:incomplete_pcb", "create:copper_sheet"]),
-        event.recipes.create.filling("kubejs:incomplete_pcb", ["kubejs:incomplete_pcb", Fluid.of("kubejs:liquid_copper", 100)]),
-        event.recipes.create.deploying("kubejs:incomplete_pcb", ["kubejs:incomplete_pcb", "minecraft:redstone"]),
-        event.recipes.create.pressing("kubejs:incomplete_pcb", "kubejs:incomplete_pcb")
-    ]).transitionalItem("kubejs:incomplete_pcb")
-    .loops(4)
-    event.custom({
-        type: "createbigcannons:melting",
-        ingredients: [
-            {
-                item: "minecraft:copper_ingot"
-            }
-        ],
-        results: [
-            {
-                fluid: "kubejs:liquid_copper",
-                amount: 90
-            }
-        ],
-        processingTime: 180,
-        heatRequirement: "heated"
-    })
-    event.custom({
-        type: "createbigcannons:melting",
-        ingredients: [
-            {
-                item: "minecraft:copper_block"
-            }
-        ],
-        results: [
-            {
-                fluid: "kubejs:liquid_copper",
-                amount: 810
-            }
-        ],
-        processingTime: 360,
-        heatRequirement: "heated"
-    })
-    event.custom({
-        type: "createbigcannons:melting",
-        ingredients: [
-            {
-                tag: "forge:nuggets/copper"
-            }
-        ],
-        results: [
-            {
-                fluid: "kubejs:liquid_copper",
-                amount: 10
-            }
-        ],
-        processingTime: 20,
-        heatRequirement: "heated"
-    })
+    }).id("kubejs:computer_advanced_manual_only")
+
+    event.shaped("kubejs:ddr5", [
+        "DDD",
+        "WWW",
+        "RGW"
+    ], {
+        D: "minecraft:diamond",
+        W: "kubejs:ram_memory_chip",
+        R: "minecraft:redstone",
+        G: "minecraft:gold_ingot"
+    }).id("kubejs:ddr5_manual_only")
+
+    event.shaped("kubejs:ssd", [
+        "IIG",
+        "WWG",
+        "PWG"
+    ], {
+        P: "kubejs:processor_chip",
+        I: "create:iron_sheet",
+        G: "minecraft:gold_ingot",
+        W: "kubejs:ssd_memory_chip"
+    }).id("kubejs:ssd_manual_only")
+    
+    event.shaped("kubejs:pcb", [
+        "RRR",
+        "CCC",
+        "TTT"
+    ], {
+        T: "minecraft:terracotta",
+        C: "create:copper_sheet",
+        R: "minecraft:redstone"
+    }).id("kubejs:pcb_manual_only")
 })
