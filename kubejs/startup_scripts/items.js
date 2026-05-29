@@ -31,6 +31,11 @@ StartupEvents.registry("item", event => {
     event.create("pcb").texture("cc_item_recipes:item/pcb").displayName("Blank Circuit Board")
     event.create("sun").texture("cc_item_recipes:item/sun").displayName("The Power of the Sun").glow(true)
     event.create("sulfur").texture("cc_item_recipes:item/sulfur").displayName("Sulfur")
+    event.create("capacitor").texture("cc_item_recipes:item/capacitor").displayName("Capacitor")
+    event.create("ddr3_slot").texture("cc_item_recipes:item/ddr3_dimm_slot").displayName("DDR3 DIMM Slot")
+    event.create("ddr5_slot").texture("cc_item_recipes:item/ddr5_dimm_slot").displayName("DDR5 DIMM Slot")
+    event.create("basic_socket").texture("cc_item_recipes:item/basic_socket").displayName("Basic Processor Socket")
+    event.create("advanced_socket").texture("cc_item_recipes:item/advanced_socket").displayName("Advanced Processor Socket")
 })
 
 StartupEvents.registry("creative_mode_tab", event => {
@@ -54,13 +59,18 @@ StartupEvents.registry("creative_mode_tab", event => {
         "kubejs:hdd_platter",
         "kubejs:electric_motor",
         "kubejs:pcb",
+        "kubejs:capacitor",
         "kubejs:vrm",
+        "kubejs:ddr3_slot",
+        "kubejs:basic_socket",
         "kubejs:wire",
         "kubejs:hdd",
         "kubejs:ddr3",
         "kubejs:basic_processor",
         "kubejs:basic_motherboard",
         "kubejs:ssd",
+        "kubejs:ddr5_slot",
+        "kubejs:advanced_socket",
         "kubejs:ddr5",
         "kubejs:advanced_processor",
         "kubejs:advanced_motherboard",

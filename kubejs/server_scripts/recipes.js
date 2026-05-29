@@ -24,6 +24,87 @@ ServerEvents.recipes(event => {
 
     event.shapeless("9x kubejs:silicon_nugget", "kubejs:silicon_ingot")
 
+    event.shaped("kubejs:capacitor", [
+        " P ",
+        "CRC",
+        " P "
+    ], {
+        P: "minecraft:paper",
+        C: "create:copper_sheet",
+        R: "minecraft:redstone"
+    }).id("kubejs:capacitor_manual_only")
+
+    event.shaped("kubejs:ddr3_slot", [
+        "IGI",
+        "IGI",
+        "IGI"
+    ], {
+        I: "minecraft:iron_ingot",
+        G: "minecraft:gold_nugget"
+    })
+
+    event.shaped("kubejs:ddr5_slot", [
+        "GDG",
+        "GDG",
+        "GDG"
+    ], {
+        G: "minecraft:gold_ingot",
+        D: "minecraft:diamond"
+    })
+
+    event.shaped("kubejs:basic_motherboard", [
+        "VVV",
+        "SPR",
+        "WWR"
+    ], {
+        V: "kubejs:vrm",
+        S: "kubejs:basic_socket",
+        P: "kubejs:pcb",
+        W: "kubejs:wire",
+        R: "kubejs:ddr3_slot"
+    })
+    
+    event.shaped("kubejs:advanced_motherboard", [
+        "VVV",
+        "SPR",
+        "WWR"
+    ], {
+        V: "kubejs:vrm",
+        S: "kubejs:advanced_socket",
+        P: "kubejs:pcb",
+        W: "kubejs:wire",
+        R: "kubejs:ddr5_slot"
+    })
+
+    event.shaped("kubejs:basic_socket", [
+        "III",
+        "IGI",
+        "III"
+    ], {
+        I: "minecraft:iron_ingot",
+        G: "minecraft:gold_nugget"
+    })
+
+    event.shaped("kubejs:advanced_socket", [
+        "GGG",
+        "GDG",
+        "GGG"
+    ], {
+        G: "minecraft:gold_ingot",
+        D: "minecraft:diamond"
+    })
+
+    event.shaped("kubejs:vrm", [
+        "PWW",
+        "WBC",
+        "WCC"
+    ], {
+        P: "kubejs:processor_chip",
+        C: "kubejs:capacitor",
+        W: Ingredient.of("#forge:wires/copper"),
+        B: "kubejs:pcb"
+    }).id("kubejs:vrm_manual_only")
+
     event.shaped("kubejs:actuator_arm", [
         " I ",
         " W ",
